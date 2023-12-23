@@ -50,4 +50,48 @@ So the expression $E \sim O(\epsilon T^2)$, that means the mistakes will increas
 
 So look at the homework1:
 
-![analysis](hw1/docs/images/analysis.png)
+![analysis](/Users/gaohaitao/homework_fall2023/hw1/docs/images/analysis.png)
+
+$$
+E_{P_{\pi^*(s)}}\pi_\theta(a \neq \pi^*(s)|s) \leq \epsilon
+$$
+
+$$
+\sum_s P_{\pi^*(s)}\pi_\theta(a \neq \pi^*(s)|s) \leq \epsilon
+$$
+
+the absolute difference between probability means that the union  that the learned policy is different with expert policy. So use the hint 2:
+
+$$
+|P_{\pi_\theta}(s_t) - P_{\pi^*}(s_t)| \leq 2\sum_{t=1}^T \sum_s P_{\pi^*(s)}\pi_\theta(a \neq \pi^*(s)|s) \leq 2T\epsilon
+$$
+
+Look at the problem 2:
+
+When the reward only depends on the last state:
+
+$$
+J(\pi^*) - J(\pi_\theta) = E_{P_{\pi}(s_T))}r(s_T) - E_{P_{\pi_\theta}(s_T)}r(s_T)
+
+$$
+
+$$
+J(\pi^*) - J(\pi_\theta) \leq |P_{\pi^*} - P_{\pi_\theta}|R_{max} \leq 2\epsilon TR_{max}
+
+$$
+
+So, the $J(\pi^*)-J(\pi_\theta)=O(T\epsilon)$.
+
+When the reward is an arbitary reward:
+
+$$
+J(\pi^*) - J(\pi_\theta) \leq \sum_{t=1}^T|P_{\pi^*} - P_{\pi_\theta}|R_{max} \leq\sum_{t=1}^T 2\epsilon R_{max} = O(\epsilon T^2)
+$$
+
+When the reward function only depends on the final state and is zero for all other states, the difference in the expected return between the expert policy and the imitation policy is of the order $O(T\epsilon)$. This means that the difference in performance scales linearly with the horizon $T$ and is directly proportional to the probability$\epsilon$ of the imitation policy making a decision that differs from the expert policy. In practice, this suggests that if the imitation policy performs slightly worse than the expert policy at each step, the total impact on the cumulative reward will be manageable over the horizon $T$ because it's only the final state that matters.
+
+For an arbitrary reward function, where rewards are accrued at every step, the difference in expected return scales with the square of the horizon $O(T^2\epsilon)$. This indicates that the impact of the imitation policy's deviations from the expert policy can compound at each step, leading to a quadratic increase in the total performance loss over time. This is a significant result, as it suggests that small mistakes can lead to a much larger cumulative discrepancy in the long run.
+
+## DAGRR
+
+when we augment the data to make $P_{train} = P_{data}$, the problem caused by distribution shift will be alleviated.

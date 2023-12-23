@@ -50,8 +50,6 @@ So the expression $E \sim O(\epsilon T^2)$, that means the mistakes will increas
 
 So look at the homework1:
 
-![analysis](/Users/gaohaitao/homework_fall2023/hw1/docs/images/analysis.png)
-
 $$
 E_{P_{\pi^*(s)}}\pi_\theta(a \neq \pi^*(s)|s) \leq \epsilon
 $$

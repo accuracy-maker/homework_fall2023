@@ -50,6 +50,7 @@ So the expression $E \sim O(\epsilon T^2)$, that means the mistakes will increas
 
 So look at the homework1:
 
+![analysis](/Users/gaohaitao/homework_fall2023/hw1/docs/images/analysis.png)
 $$
 E_{P_{\pi^*(s)}}\pi_\theta(a \neq \pi^*(s)|s) \leq \epsilon
 $$
@@ -70,12 +71,10 @@ When the reward only depends on the last state:
 
 $$
 J(\pi^*) - J(\pi_\theta) = E_{P_{\pi}(s_T))}r(s_T) - E_{P_{\pi_\theta}(s_T)}r(s_T)
-
 $$
 
 $$
 J(\pi^*) - J(\pi_\theta) \leq |P_{\pi^*} - P_{\pi_\theta}|R_{max} \leq 2\epsilon TR_{max}
-
 $$
 
 So, the $J(\pi^*)-J(\pi_\theta)=O(T\epsilon)$.

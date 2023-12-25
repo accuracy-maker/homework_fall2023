@@ -87,7 +87,7 @@ $$
 
 When the reward function only depends on the final state and is zero for all other states, the difference in the expected return between the expert policy and the imitation policy is of the order $O(T\epsilon)$. This means that the difference in performance scales linearly with the horizon $T$ and is directly proportional to the probability$\epsilon$ of the imitation policy making a decision that differs from the expert policy. In practice, this suggests that if the imitation policy performs slightly worse than the expert policy at each step, the total impact on the cumulative reward will be manageable over the horizon $T$ because it's only the final state that matters.
 
-For an arbitrary reward function, where rewards are accrued at every step, the difference in expected return scales with the square of the horizon $O(T^2\epsilon)$. This indicates that the impact of the imitation policy's deviations from the expert policy can compound at each step, leading to a quadratic increase in the total performance loss over time. This is a significant result, as it suggests that small mistakes can lead to a much larger cumulative discrepancy in the long run.
+For an arbitrary reward function, where rewards are accrued at every step, the difference in expected return scales with the square of the horizon $O(T^2\epsilon)$. This indicates that the impact of the imitation policy's deviations from the expert policy can compound at each step, leading to a quadratic increase in the total performance loss over time. This is a significant result, as it suggests that small mistakes can lead to a much larger cumulative discrepancy in the long run. 
 
 ## DAGRR
 

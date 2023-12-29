@@ -33,11 +33,15 @@ def sample_trajectory(env, policy, max_path_length, render=False):
             image_obs.append(cv2.resize(img, dsize=(250, 250), interpolation=cv2.INTER_CUBIC))
     
         # TODO use the most recent ob to decide what to do
-        ac = policy.forward(ob) # HINT: this is a numpy array
-        print('action: {}'.format(ac))
-        ac = ac[0]
+        ac = policy.get_action(ob) # HINT: this is a numpy array
+        # print('action: {}'.format(ac))
+        if ac.ndim > 1:
+            ac = ac[0]  
 
         # TODO: take that action and get reward and next ob
+        # print(f'action: {ac}')
+        # print(env.action_space)
+
         next_ob, rew, done, _ = env.step(ac)
         
         # TODO rollout can end due to done, or due to max_path_length

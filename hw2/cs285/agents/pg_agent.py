@@ -142,7 +142,7 @@ class PGAgent(nn.Module):
             if self.gae_lambda is None:
                 # TODO: if using a baseline, but not GAE, what are the advantages?
                 # advantages = Q-values - V-values
-                values = self.critic(obs)
+                # values = self.critic(obs)
                 advantages = q_values - values
             else:
                 # TODO: implement GAE

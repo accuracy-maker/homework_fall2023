@@ -195,7 +195,7 @@ def main():
     args = parser.parse_args()
 
     # create directory for logging
-    logdir_prefix = "hw3_dqn_"  # keep for autograder
+    logdir_prefix = "hw3_dqn_" + "seed_" + str(args.seed)  # keep for autograder
 
     config = make_config(args.config_file)
     logger = make_logger(logdir_prefix, config)

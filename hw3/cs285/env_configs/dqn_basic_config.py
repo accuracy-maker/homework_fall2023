@@ -56,11 +56,12 @@ def basic_dqn_config(
     def make_env(render: bool = False):
         return RecordEpisodeStatistics(gym.make(env_name, render_mode="rgb_array" if render else None))
 
-    log_string = "{}_{}_s{}_l{}_d{}".format(
+    log_string = "{}_{}_s{}_l{}_lr{}_d{}".format(
         exp_name or "dqn",
         env_name,
         hidden_size,
         num_layers,
+        learning_rate,
         discount,
     )
 
